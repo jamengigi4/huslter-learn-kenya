@@ -2,6 +2,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Users, BookOpen, Award } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 const Hero = () => {
   return (
     <section className="relative bg-gradient-hero py-20 px-4 overflow-hidden">
@@ -54,7 +61,12 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="success" size="xl" className="group">
+              <Button 
+                variant="success" 
+                size="xl" 
+                className="group"
+                onClick={() => scrollToSection('courses')}
+              >
                 Start Free Learning
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>

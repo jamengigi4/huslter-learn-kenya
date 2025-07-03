@@ -1,9 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { BookOpen, Menu, X } from "lucide-react";
 import { useState } from "react";
+import WhatsAppJoinForm from "./WhatsAppJoinForm";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isWhatsAppFormOpen, setIsWhatsAppFormOpen] = useState(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -38,10 +47,18 @@ const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-3">
-            <Button variant="learning" size="sm">
+            <Button 
+              variant="learning" 
+              size="sm"
+              onClick={() => scrollToSection('courses')}
+            >
               Start Learning
             </Button>
-            <Button variant="whatsapp" size="sm">
+            <Button 
+              variant="whatsapp" 
+              size="sm"
+              onClick={() => setIsWhatsAppFormOpen(true)}
+            >
               Join WhatsApp
             </Button>
           </div>
@@ -72,10 +89,24 @@ const Header = () => {
                 Pricing
               </a>
               <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="learning" size="sm">
+                <Button 
+                  variant="learning" 
+                  size="sm"
+                  onClick={() => {
+                    scrollToSection('courses');
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Start Learning
                 </Button>
-                <Button variant="whatsapp" size="sm">
+                <Button 
+                  variant="whatsapp" 
+                  size="sm"
+                  onClick={() => {
+                    setIsWhatsAppFormOpen(true);
+                    setIsMenuOpen(false);
+                  }}
+                >
                   Join WhatsApp
                 </Button>
               </div>
@@ -83,6 +114,11 @@ const Header = () => {
           </div>
         )}
       </div>
+      
+      <WhatsAppJoinForm 
+        isOpen={isWhatsAppFormOpen} 
+        onClose={() => setIsWhatsAppFormOpen(false)} 
+      />
     </header>
   );
 };

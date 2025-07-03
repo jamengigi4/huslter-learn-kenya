@@ -40,17 +40,17 @@ const CourseCatalog = () => {
       completionRate: 89
     },
     {
-      title: "Canva for Business Graphics",
-      description: "Create stunning posters, flyers, and social media graphics using Canva. No design experience needed!",
+      title: "Canva for Posters",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "Digital Skills",
       level: "Beginner" as const,
       duration: "5 days",
       lessons: 12,
       enrolledStudents: 8900,
       rating: 4.7,
-      price: "FREE",
-      isFree: true,
-      isPopular: true,
+      price: "KES 100",
+      isFree: false,
+      isPopular: false,
       features: [
         "Canva basics and interface navigation",
         "Creating business flyers and posters",
@@ -126,104 +126,104 @@ const CourseCatalog = () => {
 
     // Vocational Skills - Beginner (Free)
     {
-      title: "Hair Braiding Basics",
-      description: "Master fundamental braiding techniques for personal and professional use. Start your beauty journey today!",
+      title: "How to Bake Mandazi",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "Vocational Skills",
       level: "Beginner" as const,
       duration: "7 days",
       lessons: 18,
       enrolledStudents: 9400,
       rating: 4.8,
-      price: "FREE",
-      isFree: true,
+      price: "KES 150",
+      isFree: false,
       isPopular: false,
       features: [
-        "Basic braiding techniques and patterns",
-        "Hair preparation and care",
-        "Tools and products needed",
-        "Pricing your braiding services",
-        "Building a client base"
+        "Traditional mandazi recipes",
+        "Mixing and kneading techniques",
+        "Perfect frying methods",
+        "Pricing for profit",
+        "Building a baking business"
       ],
       completionRate: 85
     },
     {
-      title: "Professional Cleaning Mastery",
-      description: "Learn efficient cleaning techniques for homes and offices. Perfect for starting a cleaning business.",
+      title: "Nail Art for Beginners",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "Vocational Skills",
       level: "Beginner" as const,
       duration: "5 days",
       lessons: 14,
       enrolledStudents: 6700,
       rating: 4.7,
-      price: "FREE",
-      isFree: true,
+      price: "KES 200",
+      isFree: false,
       isPopular: false,
       features: [
-        "Room-by-room cleaning strategies",
-        "Choosing the right cleaning products",
-        "Time management and efficiency",
-        "Pricing cleaning services",
-        "Building repeat customers"
+        "Basic nail art techniques",
+        "Tools and equipment needed",
+        "Design patterns and styles",
+        "Client consultation skills",
+        "Building your nail business"
       ],
       completionRate: 88
     },
 
     // English & Communication - Beginner (Free)
     {
-      title: "English for Everyday Business",
-      description: "Essential English phrases and communication skills for shopkeepers, hawkers, and service providers.",
+      title: "Common English Greetings",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "English & Communication",
       level: "Beginner" as const,
       duration: "10 days",
       lessons: 25,
       enrolledStudents: 18500,
       rating: 4.9,
-      price: "FREE",
-      isFree: true,
-      isPopular: true,
+      price: "KES 120",
+      isFree: false,
+      isPopular: false,
       features: [
-        "Customer greetings and introductions",
-        "Handling complaints politely",
-        "Numbers, prices, and calculations",
-        "Asking for directions and help",
-        "Phone conversations"
+        "Daily greetings and introductions",
+        "Professional communication",
+        "Phone conversation skills",
+        "Email writing basics",
+        "Cultural communication tips"
       ],
       completionRate: 91
     },
     {
-      title: "Job Interview English",
-      description: "Ace your next job interview with confident English communication and professional responses.",
+      title: "Writing a Simple CV",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "English & Communication",
       level: "Beginner" as const,
       duration: "6 days",
       lessons: 16,
       enrolledStudents: 11200,
       rating: 4.8,
-      price: "FREE",
-      isFree: true,
+      price: "KES 150",
+      isFree: false,
       isPopular: false,
       features: [
-        "Self-introduction and elevator pitch",
-        "Answering common interview questions",
-        "Professional vocabulary and phrases",
-        "Body language and confidence",
-        "Following up after interviews"
+        "CV structure and format",
+        "Writing compelling summaries",
+        "Skills and experience sections",
+        "Professional presentation",
+        "Application tips and tricks"
       ],
       completionRate: 87
     },
 
     // Hustler Business Tips - Beginner (Free)
     {
-      title: "Smart Pricing Strategies",
-      description: "Learn how to price your products and services to maximize profits while staying competitive.",
+      title: "How to Price Your Product",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "Hustler Business Tips",
       level: "Beginner" as const,
       duration: "4 days",
       lessons: 11,
       enrolledStudents: 13600,
       rating: 4.7,
-      price: "FREE",
-      isFree: true,
+      price: "KES 100",
+      isFree: false,
       isPopular: false,
       features: [
         "Understanding your costs and margins",
@@ -235,33 +235,33 @@ const CourseCatalog = () => {
       completionRate: 83
     },
     {
-      title: "Customer Payment Management",
-      description: "Effective strategies for handling late payments and maintaining healthy cash flow in your business.",
+      title: "Customer Care Basics",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "Hustler Business Tips",
       level: "Beginner" as const,
       duration: "3 days",
       lessons: 9,
       enrolledStudents: 8900,
       rating: 4.6,
-      price: "FREE",
-      isFree: true,
+      price: "KES 80",
+      isFree: false,
       isPopular: false,
       features: [
-        "Setting clear payment terms",
-        "Following up on overdue payments",
-        "Building trust with customers",
-        "Using M-Pesa and mobile money effectively",
-        "Keeping accurate financial records"
+        "Professional customer service",
+        "Handling complaints effectively",
+        "Building customer loyalty",
+        "Communication best practices",
+        "Follow-up strategies"
       ],
       completionRate: 79
     },
 
-    // Advanced Courses
+    // Additional Premium Courses
     {
-      title: "TikTok Business Growth Mastery",
-      description: "Advanced strategies for growing your business using TikTok marketing and viral content creation.",
+      title: "TikTok for Business",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
       category: "Digital Skills",
-      level: "Advanced" as const,
+      level: "Intermediate" as const,
       duration: "8 days",
       lessons: 20,
       enrolledStudents: 3400,
@@ -278,22 +278,42 @@ const CourseCatalog = () => {
       completionRate: 68
     },
     {
-      title: "Bridal Makeup Professional",
-      description: "Advanced techniques for bridal and special occasion makeup. Build a high-end makeup business.",
-      category: "Vocational Skills",
+      title: "Facebook Page Setup",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
+      category: "Digital Skills",
+      level: "Intermediate" as const,
+      duration: "6 days",
+      lessons: 15,
+      enrolledStudents: 7800,
+      rating: 4.5,
+      price: "KES 150",
+      isFree: false,
+      features: [
+        "Creating optimized business profiles",
+        "Content planning and scheduling",
+        "Using Facebook ads effectively",
+        "Engaging with customers online",
+        "Analytics and performance tracking"
+      ],
+      completionRate: 71
+    },
+    {
+      title: "Social Media Growth",
+      description: "Pay to access. Call or email Microlearning Hub to get your unique access code for all sessions.",
+      category: "Digital Skills",
       level: "Advanced" as const,
       duration: "12 days",
       lessons: 30,
       enrolledStudents: 2100,
       rating: 4.9,
-      price: "KES 500",
+      price: "KES 300",
       isFree: false,
       features: [
-        "Bridal makeup styles and trends",
-        "Working with different skin tones",
-        "Photography-ready makeup techniques",
-        "Pricing premium services",
-        "Building an upscale client base"
+        "Multi-platform growth strategies",
+        "Content creation at scale",
+        "Audience engagement techniques",
+        "Monetization methods",
+        "Building a personal brand"
       ],
       completionRate: 72
     }
@@ -366,15 +386,18 @@ const CourseCatalog = () => {
           </h3>
           <p className="text-white/90 mb-6 max-w-2xl mx-auto">
             Join thousands of Kenyans who are already upgrading their skills with just 5 minutes a day. 
-            Start with our free courses and see the difference!
+            Start with our 2 free courses and unlock the rest!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="success" size="xl">
               Start Free Learning Today
             </Button>
             <Button variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-              View All Free Courses
+              Call for Access: +254 710 654 707
             </Button>
+          </div>
+          <div className="mt-4 text-white/80 text-sm">
+            📞 Call or email Microlearning Hub to get your unique access code for all premium courses
           </div>
         </div>
       </div>

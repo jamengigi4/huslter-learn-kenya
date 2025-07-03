@@ -153,12 +153,18 @@ const CourseCard = ({
         </div>
         
         <Button 
-          variant={isFree ? "success" : "learning"} 
+          variant={isFree ? "success" : "outline"} 
           className="w-full"
           size="lg"
+          disabled={!isFree}
         >
-          {isFree ? "Start Learning Free" : "Enroll Now"}
+          {isFree ? "Start Learning Free" : "🔒 Locked Course"}
         </Button>
+        {!isFree && (
+          <div className="text-xs text-muted-foreground text-center">
+            Call +254 710 654 707 for access code
+          </div>
+        )}
       </CardFooter>
     </Card>
   );

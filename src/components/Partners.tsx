@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Building2, Users, Heart, Phone } from "lucide-react";
+import PartnershipForm from "./PartnershipForm";
 
 const Partners = () => {
+  const [isPartnershipFormOpen, setIsPartnershipFormOpen] = useState(false);
   const learningPartners = [
     {
       name: "Zetech University",
@@ -179,7 +182,12 @@ const Partners = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="success" size="xl" className="group">
+            <Button 
+              variant="success" 
+              size="xl" 
+              className="group"
+              onClick={() => setIsPartnershipFormOpen(true)}
+            >
               <Phone className="mr-2 h-5 w-5" />
               Partner with Us
             </Button>
@@ -201,6 +209,11 @@ const Partners = () => {
             💡 More institutional collaborations are underway to ensure quality, relevance, and certification standards across all our learning tracks.
           </p>
         </div>
+
+        <PartnershipForm 
+          isOpen={isPartnershipFormOpen} 
+          onClose={() => setIsPartnershipFormOpen(false)} 
+        />
       </div>
     </section>
   );
