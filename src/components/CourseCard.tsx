@@ -157,6 +157,12 @@ const CourseCard = ({
           className="w-full"
           size="lg"
           disabled={!isFree}
+          onClick={() => {
+            if (isFree) {
+              const courseId = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+              window.dispatchEvent(new CustomEvent('navigate-to-course', { detail: { courseId } }));
+            }
+          }}
         >
           {isFree ? "Start Learning Free" : "🔒 Locked Course"}
         </Button>

@@ -1,12 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import CourseCard from "./CourseCard";
+import CourseDetail from "./CourseDetail";
 import { Smartphone, Scissors, MessageCircle, TrendingUp, Filter } from "lucide-react";
 
 const CourseCatalog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedLevel, setSelectedLevel] = useState("All");
+  const [currentCourse, setCurrentCourse] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleNavigateToCourse = (event: CustomEvent) => {
+      setCurrentCourse(event.detail.courseId);
+    };
+
+    window.addEventListener('navigate-to-course', handleNavigateToCourse as EventListener);
+    return () => {
+      window.removeEventListener('navigate-to-course', handleNavigateToCourse as EventListener);
+    };
+  }, []);
 
   const categories = [
     { id: "All", name: "All Courses", icon: <Filter className="h-4 w-4" /> },
@@ -324,6 +337,10 @@ const CourseCatalog = () => {
     const levelMatch = selectedLevel === "All" || course.level === selectedLevel;
     return categoryMatch && levelMatch;
   });
+
+  if (currentCourse) {
+    return <CourseDetail courseId={currentCourse} onBack={() => setCurrentCourse(null)} />;
+  }
 
   return (
     <section id="courses" className="py-20 px-4 bg-muted/30">
