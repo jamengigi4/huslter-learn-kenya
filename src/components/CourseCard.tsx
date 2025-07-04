@@ -159,7 +159,15 @@ const CourseCard = ({
           disabled={!isFree}
           onClick={() => {
             if (isFree) {
-              const courseId = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+              // Map exact course titles to their IDs in CourseDetail
+              let courseId = '';
+              if (title === "Gmail Mastery for Hustlers") {
+                courseId = "gmail-mastery";
+              } else if (title === "WhatsApp Business Setup") {
+                courseId = "whatsapp-business";
+              } else {
+                courseId = title.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+              }
               window.dispatchEvent(new CustomEvent('navigate-to-course', { detail: { courseId } }));
             }
           }}
