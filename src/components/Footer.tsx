@@ -207,8 +207,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center pt-6 border-t border-white/20">
             <p className="text-white/60 text-sm">
-              © 2024 Microlearning Hub by Team Innovators. All rights reserved. | 
-              <span className="text-success font-semibold"> "This is a Digital School"</span>
+              © Microlearning Hub 2025. All Rights Reserved.
             </p>
             <p className="text-white/50 text-xs mt-2">
               Made with ❤️ for the people of Kenya and beyond.
