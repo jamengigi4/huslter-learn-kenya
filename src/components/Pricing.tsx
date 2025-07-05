@@ -189,11 +189,23 @@ const Pricing = () => {
               </CardContent>
 
               <CardFooter>
-                <Button 
-                  variant={plan.ctaVariant} 
-                  size="lg" 
-                  className="w-full"
-                >
+            <Button 
+              variant={plan.ctaVariant} 
+              size="lg" 
+              className="w-full"
+              onClick={() => {
+                // Only functional within pricing section
+                if (plan.name === "Free Starter") {
+                  const coursesSection = document.getElementById('courses');
+                  if (coursesSection) {
+                    coursesSection.scrollIntoView({ behavior: 'smooth' });
+                  }
+                } else {
+                  // Show payment flow for paid plans
+                  console.log(`Starting payment for ${plan.name} - KES ${plan.price.replace('KES ', '')}`);
+                }
+              }}
+            >
                   {plan.cta}
                 </Button>
               </CardFooter>
