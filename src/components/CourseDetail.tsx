@@ -5,6 +5,10 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle, Clock, Users, Star, Lock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import LessonContent from "./LessonContent";
+import WatchDemoButton from "./WatchDemoButton";
+import AccessCertificationForm from "./AccessCertificationForm";
+import GroupRegistrationForm from "./GroupRegistrationForm";
 
 interface Lesson {
   id: number;
@@ -351,6 +355,9 @@ const CourseDetail = ({ courseId, onBack }: CourseDetailProps) => {
   const [userName, setUserName] = useState("");
   const [userPhone, setUserPhone] = useState("");
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+  const [showAccessForm, setShowAccessForm] = useState(false);
+  const [showCertificationForm, setShowCertificationForm] = useState(false);
+  const [showGroupForm, setShowGroupForm] = useState(false);
 
   if (!course) {
     return (
@@ -644,6 +651,32 @@ const CourseDetail = ({ courseId, onBack }: CourseDetailProps) => {
               <span className="font-medium">{course.completionRate}% complete rate</span>
             </div>
           </div>
+
+          {/* New Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 pt-6 border-t">
+            <WatchDemoButton />
+            <Button 
+              variant="success" 
+              size="xl"
+              onClick={() => setShowAccessForm(true)}
+            >
+              Get Full Access
+            </Button>
+            <Button 
+              variant="accent" 
+              size="xl"
+              onClick={() => setShowCertificationForm(true)}
+            >
+              Get Certified
+            </Button>
+            <Button 
+              variant="outline" 
+              size="xl"
+              onClick={() => setShowGroupForm(true)}
+            >
+              Contact Learning
+            </Button>
+          </div>
         </CardHeader>
       </Card>
 
@@ -680,8 +713,8 @@ const CourseDetail = ({ courseId, onBack }: CourseDetailProps) => {
                   </div>
                   
                   {currentLesson === lesson.id && (
-                    <div className="mt-4 p-4 bg-muted/50 rounded-lg">
-                      <p className="text-muted-foreground leading-relaxed">{lesson.content}</p>
+                    <div className="mt-4">
+                      <LessonContent content={lesson.content} />
                     </div>
                   )}
                 </div>
@@ -734,6 +767,24 @@ const CourseDetail = ({ courseId, onBack }: CourseDetailProps) => {
           </CardContent>
         </Card>
       )}
+
+      {/* Forms */}
+      <AccessCertificationForm 
+        isOpen={showAccessForm}
+        onClose={() => setShowAccessForm(false)}
+        type="access"
+      />
+      
+      <AccessCertificationForm 
+        isOpen={showCertificationForm}
+        onClose={() => setShowCertificationForm(false)}
+        type="certification"
+      />
+      
+      <GroupRegistrationForm 
+        isOpen={showGroupForm}
+        onClose={() => setShowGroupForm(false)}
+      />
     </div>
   );
 };

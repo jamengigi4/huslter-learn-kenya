@@ -1,6 +1,8 @@
+
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Users, BookOpen, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
+import WatchDemoButton from "./WatchDemoButton";
 
 const scrollToSection = (sectionId: string) => {
   const element = document.getElementById(sectionId);
@@ -70,10 +72,7 @@ const Hero = () => {
                 Start Free Learning
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="xl" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                <Play className="mr-2 h-5 w-5" />
-                Watch Demo
-              </Button>
+              <WatchDemoButton />
             </div>
 
             {/* Trust Indicator */}
