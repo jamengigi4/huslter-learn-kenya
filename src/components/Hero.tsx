@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Users, BookOpen, Award } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 import WatchDemoButton from "./WatchDemoButton";
 
