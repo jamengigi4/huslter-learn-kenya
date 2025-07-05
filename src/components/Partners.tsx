@@ -48,7 +48,7 @@ const Partners = () => {
       focus: "Digital Skills & Entrepreneurship"
     },
     {
-      name: "House of Grace Nairobi",
+      name: "House of Grace Nairobi Thika Road",
       location: "Youth & Empowerment Ministry",
       impact: "300+ Members Enrolled",
       focus: "Life Skills & Business Training"

@@ -80,7 +80,7 @@ const Hero = () => {
             <div className="pt-6 border-t border-white/20">
               <p className="text-sm text-white/70">
                 Trusted by{" "}
-                <span className="font-semibold text-white">Zetech University</span>,{" "}
+                <span className="font-semibold text-white">Plp Academy</span>,{" "}
                 <span className="font-semibold text-white">TUK</span>, and{" "}
                 <span className="font-semibold text-white">10+ institutions</span>
               </p>
