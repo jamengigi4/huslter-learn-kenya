@@ -9,7 +9,7 @@ const Partners = () => {
   const [isPartnershipFormOpen, setIsPartnershipFormOpen] = useState(false);
   const learningPartners = [
     {
-      name: "Zetech University",
+      name: "Plp Academy",
       location: "Nairobi Campus",
       type: "Digital Skills Review & Endorsement",
       description: "Validating our digital literacy curriculum for practical workplace application."
@@ -60,7 +60,7 @@ const Partners = () => {
       focus: "Vocational Skills for Women"
     },
     {
-      name: "Tirus Foundation",
+      name: "The Muriukis Foundation",
       location: "Leadership Center",
       impact: "150+ Youth Leaders",
       focus: "Digital Hustle & Leadership Mentorship"
