@@ -8,6 +8,7 @@ import { useToast } from "@/hooks/use-toast";
 import LessonContent from "./LessonContent";
 import { useProgressManager } from "@/hooks/useProgressManager";
 import AccessCodeDialog from "./AccessCodeDialog";
+import QuizDialog from "./QuizDialog";
 
 interface Lesson {
   id: number;
@@ -279,11 +280,6 @@ const CourseDetail = ({ courseId, onBack }: CourseDetailProps) => {
           </CardContent>
         </Card>
         
-        <AccessCodeDialog
-          isOpen={showAccessDialog}
-          onClose={() => setShowAccessDialog(false)}
-          onAccessGranted={handleAccessCodeSuccess}
-        />
       </div>
     );
   }
@@ -442,6 +438,21 @@ const CourseDetail = ({ courseId, onBack }: CourseDetailProps) => {
           </CardContent>
         </Card>
       )}
+
+      {/* Quiz Dialog */}
+      <QuizDialog
+        isOpen={showQuiz}
+        onClose={() => setShowQuiz(false)}
+        courseTitle={course.title}
+        questions={course.quiz || []}
+      />
+        
+      {/* Access Code Dialog */}
+      <AccessCodeDialog
+        isOpen={showAccessDialog}
+        onClose={() => setShowAccessDialog(false)}
+        onAccessGranted={handleAccessCodeSuccess}
+      />
     </div>
   );
 };

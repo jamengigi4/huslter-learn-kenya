@@ -2,8 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Crown, Users, Smartphone } from "lucide-react";
+import { useState } from "react";
+import PaymentFlow from "./PaymentFlow";
+import CertificateDialog from "./CertificateDialog";
+import GroupPricingDialog from "./GroupPricingDialog";
 
 const Pricing = () => {
+  const [showPaymentFlow, setShowPaymentFlow] = useState(false);
+  const [paymentPlan, setPaymentPlan] = useState<{type: 'free' | 'full' | 'premium', amount: number}>({type: 'free', amount: 0});
+  const [showCertificateDialog, setShowCertificateDialog] = useState(false);
+  const [showGroupDialog, setShowGroupDialog] = useState(false);
   const pricingPlans = [
     {
       name: "Free Starter",
@@ -69,7 +77,7 @@ const Pricing = () => {
         "Industry recognition"
       ],
       limitations: [],
-      cta: "Get Certified",
+            cta: "Get Certified",
       ctaVariant: "accent" as const,
       popular: false
     }
@@ -108,6 +116,11 @@ const Pricing = () => {
       features: ["1-hour consultation", "Written action plan", "Follow-up support", "Industry insights"]
     }
   ];
+
+  const handlePaymentSuccess = (accessCode: string) => {
+    console.log('Payment successful, access code:', accessCode);
+    // The PaymentFlow component handles the WhatsApp notifications
+  };
 
   return (
     <section id="pricing" className="py-20 px-4 bg-background">
@@ -194,15 +207,17 @@ const Pricing = () => {
               size="lg" 
               className="w-full"
               onClick={() => {
-                // Only functional within pricing section
                 if (plan.name === "Free Starter") {
                   const coursesSection = document.getElementById('courses');
                   if (coursesSection) {
                     coursesSection.scrollIntoView({ behavior: 'smooth' });
                   }
-                } else {
-                  // Show payment flow for paid plans
-                  console.log(`Starting payment for ${plan.name} - KES ${plan.price.replace('KES ', '')}`);
+                } else if (plan.name === "Full Access") {
+                  setPaymentPlan({type: 'full', amount: 100});
+                  setShowPaymentFlow(true);
+                } else if (plan.name === "Premium Certificate") {
+                  setPaymentPlan({type: 'premium', amount: 200});
+                  setShowPaymentFlow(true);
                 }
               }}
             >
@@ -233,7 +248,12 @@ const Pricing = () => {
                   <div className="text-4xl font-bold mb-2">{groupPackage.price}</div>
                   <p className="text-accent-foreground/80">{groupPackage.minMembers}</p>
                 </div>
-                <Button variant="outline" size="lg" className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="w-full bg-white/10 border-white/30 text-white hover:bg-white/20"
+                  onClick={() => setShowGroupDialog(true)}
+                >
                   Contact for Group Pricing
                 </Button>
               </div>
@@ -274,7 +294,18 @@ const Pricing = () => {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="learning" size="sm" className="w-full">
+                  <Button 
+                    variant="learning" 
+                    size="sm" 
+                    className="w-full"
+                    onClick={() => {
+                      if (addon.name === "Personal Mentorship") {
+                        setShowCertificateDialog(true);
+                      } else {
+                        setShowGroupDialog(true);
+                      }
+                    }}
+                  >
                     Learn More
                   </Button>
                 </CardFooter>
@@ -323,10 +354,26 @@ const Pricing = () => {
             Start your learning journey today!
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="success" size="xl">
+            <Button 
+              variant="success" 
+              size="xl"
+              onClick={() => {
+                const coursesSection = document.getElementById('courses');
+                if (coursesSection) {
+                  coursesSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
               Start Free Learning
             </Button>
-            <Button variant="whatsapp" size="xl">
+            <Button 
+              variant="whatsapp" 
+              size="xl"
+              onClick={() => {
+                const whatsappUrl = 'https://api.whatsapp.com/send?phone=254710654707&text=Hi! I want to join the Microlearning Hub community.';
+                window.open(whatsappUrl, '_blank');
+              }}
+            >
               Join WhatsApp: +254710654707
             </Button>
           </div>
@@ -338,6 +385,27 @@ const Pricing = () => {
             </p>
           </div>
         </div>
+
+        {/* Payment Flow Dialog */}
+        <PaymentFlow
+          isOpen={showPaymentFlow}
+          onClose={() => setShowPaymentFlow(false)}
+          planType={paymentPlan.type}
+          amount={paymentPlan.amount}
+          onPaymentSuccess={handlePaymentSuccess}
+        />
+
+        {/* Certificate Dialog */}
+        <CertificateDialog
+          isOpen={showCertificateDialog}
+          onClose={() => setShowCertificateDialog(false)}
+        />
+
+        {/* Group Pricing Dialog */}
+        <GroupPricingDialog
+          isOpen={showGroupDialog}
+          onClose={() => setShowGroupDialog(false)}
+        />
       </div>
     </section>
   );
